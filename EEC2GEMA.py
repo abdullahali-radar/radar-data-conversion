@@ -32,8 +32,8 @@ for file in os.listdir(eecFolder):
         command1='{}/RainH5ToRb5 --infile={} --type=volume'.format(rb5bin,infile)
     
     commanddbz='--rbdatatype=dBZ --outfile={} --sensorid={} --sensorname={}'.format(outfiledbz,siteID,sesnsorID)
-    commandv  ='--rbdatatype=dBZ --outfile={} --sensorid={} --sensorname={}'.format(outfilev,siteID,sesnsorID)
-    commandw  ='--rbdatatype=dBZ --outfile={} --sensorid={} --sensorname={}'.format(outfilew,siteID,sesnsorID)
+    commandv  ='--rbdatatype=V --outfile={} --sensorid={} --sensorname={}'.format(outfilev,siteID,sesnsorID)
+    commandw  ='--rbdatatype=W --outfile={} --sensorid={} --sensorname={}'.format(outfilew,siteID,sesnsorID)
     
     fullcommanddbz='{} {}'.format(command1,commanddbz)
     fullcommandv='{} {}'.format(command1,commandv)
