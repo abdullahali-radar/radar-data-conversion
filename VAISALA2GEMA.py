@@ -8,16 +8,16 @@ Created on Thu Jul  2 16:47:02 2020
 from datetime import datetime
 import os, sys
 
-eecFolder='D:/project_webprogramming/wxradarexplore/radarDataConversion/20200620'
+vasisalaFolder='D:/project_webprogramming/wxradarexplore/radarDataConversion/20200620'
 gemaFolder='D:/Rainbow5.40/rainbow/rawdata'
 rb5bin='D:/Rainbow5.40/rainbow/bin'
 sesnsorID='Ambon'
 siteID='AMQ'
 scanning='RAW_PPIVOL_A.vol'
-for file in os.listdir(eecFolder):
+for file in os.listdir(vasisalaFolder):
     print(file)
     time=datetime(int(file[5:9]),int(file[9:11]),int(file[11:13]),int(file[14:16]),int(file[16:18]))
-    infile='{}/{}'.format(eecFolder,file)
+    infile='{}/{}'.format(vasisalaFolder,file)
     outpath='{}/{}/{}/{}'.format(gemaFolder,siteID,scanning,time.strftime("%Y-%m-%d"))
     try:os.makedirs(outpath)
     except:pass
@@ -31,8 +31,8 @@ for file in os.listdir(eecFolder):
         command1='{}/RainH5ToRb5 --infile={} --type=volume'.format(rb5bin,infile)
     
     commanddbz='--rbdatatype=dBZ --outfile={} --sensorid={} --sensorname={}'.format(outfiledbz,siteID,sesnsorID)
-    commandv  ='--rbdatatype=dBZ --outfile={} --sensorid={} --sensorname={}'.format(outfilev,siteID,sesnsorID)
-    commandw  ='--rbdatatype=dBZ --outfile={} --sensorid={} --sensorname={}'.format(outfilew,siteID,sesnsorID)
+    commandv  ='--rbdatatype=V --outfile={} --sensorid={} --sensorname={}'.format(outfilev,siteID,sesnsorID)
+    commandw  ='--rbdatatype=W --outfile={} --sensorid={} --sensorname={}'.format(outfilew,siteID,sesnsorID)
     
     fullcommanddbz='{} {}'.format(command1,commanddbz)
     fullcommandv='{} {}'.format(command1,commandv)
